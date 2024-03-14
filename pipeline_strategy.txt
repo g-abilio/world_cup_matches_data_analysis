@@ -1,0 +1,31 @@
+FINAL PROJECT
+
+To summarize the steps in the project, we are going to make topics, 
+which will serve as a guide to the data wrangling pipeline.
+
+FIRST TOPIC -> DATA LOADING:
+
+Here, we are going to use web scraping and data from csv files. 
+To make this possible, we have the scraping tools,
+the csv data loading tool and the data combination tools.
+
+SECOND TOPIC -> DATA VIS:
+
+To get a better understanding about the data, the data visualization
+packages will be used. This kind of visualization will help us in the 
+process of understanding the data, which will be massively used in the
+next step.
+
+THIRD TOPIC -> DATA PROCESSING:
+
+This topic is the last one, and will be related to the data processing.
+This topic will give the results based on the goal of the project, which
+can be various kinds of data analysis. Furthermore, data processing will be 
+used in the second topic as well, to help in the data visualization and
+understanding.
+
+DATASET:
+
+The dataset we are going to use is one about the matches in all the world cups.
+For that, we are going to use a csv with all the matches until
+2014. For 2018 and we are going to use web scraping and integration.
