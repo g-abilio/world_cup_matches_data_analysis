@@ -96,6 +96,23 @@ def df_atn_series(df_util, list_1):
     array_6 = np.array(list_aux)
     return pd.Series(array_6, index = range(0, len(list_aux)))
 
+# Correcting the names of the teams:
+
+def correcting_names(df_original):
+    df_original["home_team_names"].values[df_original["home_team_names"].values == 'rn">Bosnia and Herzegovina'] = "Bosnia and Herzegovina"
+    df_original["home_team_names"].values[df_original["home_team_names"].values == 'rn">Republic of Ireland'] = 'Republic of Ireland'
+    df_original["home_team_names"].values[df_original["home_team_names"].values == 'rn">Serbia and Montenegro'] = 'Serbia and Montenegro'
+    df_original["home_team_names"].values[df_original["home_team_names"].values == 'rn">Trinidad and Tobago'] = 'Trinidad and Tobago'
+    df_original["home_team_names"].values[df_original["home_team_names"].values == 'rn">United Arab Emirates'] = 'United Arab Emirates'
+
+    df_original["away_team_names"].values[df_original["away_team_names"].values == 'rn">Bosnia and Herzegovina'] = "Bosnia and Herzegovina"
+    df_original["away_team_names"].values[df_original["away_team_names"].values == 'rn">Republic of Ireland'] = 'Republic of Ireland'
+    df_original["away_team_names"].values[df_original["away_team_names"].values == 'rn">Serbia and Montenegro'] = 'Serbia and Montenegro'
+    df_original["away_team_names"].values[df_original["away_team_names"].values == 'rn">Trinidad and Tobago'] = 'Trinidad and Tobago'
+    df_original["away_team_names"].values[df_original["away_team_names"].values == 'rn">United Arab Emirates'] = 'United Arab Emirates'
+
+    return df_original
+
 # Create the integrated Dataframe
 
 def create_df_new():
@@ -123,6 +140,8 @@ def create_df_new():
 
     df.dropna(inplace = True)
 
+    df = correcting_names(df)
+
     return df 
 
 if page.status_code == 200:
@@ -146,6 +165,8 @@ if page.status_code == 200:
         list_2.append(i.get_text())
 
     df_original = create_df_new()
+
+    df_original = correcting_names(df_original)
 
 else:
     print("Error in the HTTPS requisition")
