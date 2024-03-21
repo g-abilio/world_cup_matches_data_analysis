@@ -113,6 +113,38 @@ def correcting_names(df_original):
 
     return df_original
 
+def appending_victory_column(df):
+    list_hg = list(df["home_team_goals"].values)
+    list_ag = list(df["away_team_goals"].values)
+    comparison_list = list(zip(list_hg, list_ag))
+
+    list_victory = []
+
+    for (i,j) in comparison_list:
+        if (i > j):
+            list_victory.append("home")
+        elif (j > i):
+            list_victory.append("away")
+        else:
+            list_victory.append("tie")
+
+    df["victory"] = list_victory
+    return df
+
+def appending_loss_column(df):
+    list_aux_loss = []
+
+    for i in df["victory"].values:
+        if (i == "home"):
+            list_aux_loss.append("away")
+        elif (i == "away"):
+            list_aux_loss.append("home")
+        else:
+            list_aux_loss.append("tie")
+        
+    df["loss"] = list_aux_loss
+    return df
+
 # Create the integrated Dataframe
 
 def create_df_new():
@@ -141,6 +173,8 @@ def create_df_new():
     df.dropna(inplace = True)
 
     df = correcting_names(df)
+    df = appending_victory_column(df)
+    df = appending_loss_column(df)
 
     return df 
 
