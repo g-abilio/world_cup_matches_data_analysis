@@ -94,6 +94,8 @@ class Numerical_based:
 
         print(f"Total number of goals in all matches at WC history: {goals_per_game.sum()}\nMean of goals per game: {goals_per_game.mean()}\nStandard Deviation of goals per game: {goals_per_game.std()}\nVariance of goals per game: {goals_per_game.var()}\nMaximum number of goals per game: {goals_per_game.max()}")
 
+if __name__ == "__main__":
+    print("A library to realize data understanding about WC matches.\n")
 
 
 

@@ -204,3 +204,6 @@ if page.status_code == 200:
 
 else:
     print("Error in the HTTPS requisition")
+
+if __name__ == "__main__":
+    print("A library to integrate data and make a dataframe for WC matches data analysis.\n")
