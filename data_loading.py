@@ -1,6 +1,6 @@
 ''' Here, the objective is to build the dataframe
 that will be used for the data analysis. To do that,
-we are going to lead a csv and complete the datafrane
+we are going to read a csv and complete the datafrane
 with data from web scraping. '''
 
 import pandas as pd

@@ -1,3 +1,8 @@
+''' Here, the objective is to build a pipeline to deal with the
+data visualization and understanding. This pipeline will be applied
+to the problem in focus, that is, the analysis of the WC matches
+history. '''
+
 from data_loading import create_df_new
 import numpy as np
 import pandas as pd
@@ -98,6 +103,14 @@ class Numerical_based:
         for i in self.dataframe_numerical :
             dispersion(i)
 
+    def pivot_table(self):
+        df_pivot = df.pivot_table(values = ["home_team_goals", "away_team_goals"], index = ["year", "home_team_names", "away_team_names"])
+        print("Using the home teams as metric:\n")
+        display(df_pivot.sort_values(by = "home_team_goals", ascending = False))
+
+        print("Using the away teams as metric:\n")
+        display(df_pivot.sort_values(by = "away_team_goals", ascending = False))
+
     def goals_per_game_stat(self):
         goals_per_game = list(df[self.dataframe_numerical].sum(axis = 1))
         goals_per_game = np.array(goals_per_game)
@@ -175,13 +188,13 @@ class Plots(NonNumerical_based):
         titles = [1, 1, 2, 2, 2, 4, 4, 5]
 
         plt.plot(winners, titles, "*", ms = 10)
-        plt.title("Titles: winners of WC")
+        plt.title("Winners of WC")
         plt.xlabel("Winners")
         plt.ylabel("Titles")
         plt.plot()
 
 if __name__ == "__main__":
-    print("A library to realize data understanding about WC matches.\n")
+    print("A library to realize data understanding and visualization about WC matches.\n")
 
  
 
