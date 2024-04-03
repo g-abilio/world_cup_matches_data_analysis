@@ -3,7 +3,7 @@ data visualization and understanding. This pipeline will be applied
 to the problem in focus, that is, the analysis of the WC matches
 history. '''
 
-from data_loading import create_df_new
+from libs.data_loading import create_df_new
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt

@@ -7,8 +7,8 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-from data_loading import create_df_new
-from data_vis_und import NonNumerical_based, Numerical_based
+from libs.data_loading import create_df_new
+from libs.data_vis_und import NonNumerical_based, Numerical_based
 
 df = create_df_new()
 
